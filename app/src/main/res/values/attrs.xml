@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="FlowButton">
+        <attr name="flow" format="boolean" />
+        <attr name="flowColor" format="color" />
+        <attr name="flowText" format="string" />
+        <attr name="flowTextColor" format="color" />
+        <attr name="flowTextSize" format="dimension" />
+        <attr name="flowPadding" format="dimension"/>
+    </declare-styleable>
+    <declare-styleable name="CircleImage">
+        <attr name="image" format="reference"/>
+        <attr name="clipRadius" format="float"/>
+    </declare-styleable>
+</resources>

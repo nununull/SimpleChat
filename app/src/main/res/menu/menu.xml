@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/homepage"
+            android:title="homepage" />
+        <item
+            android:id="@+id/query_score"
+            android:title="item" />
+    </group>
+    <item android:title="item">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/menu_check_for_update"
+                    android:title="检查更新" />
+                <item
+                    android:id="@+id/menu_feedback"
+                    android:title="反馈" />
+                <item
+                    android:id="@+id/menu_app_about"
+                    android:title="关于" />
+                <item
+                    android:id="@+id/menu_app_setting"
+                    android:title="设置" />
+                <item
+                    android:id="@+id/menu_app_logout"
+                    android:title="退出帐号" />
+            </group>
+        </menu>
+    </item>
+</menu>

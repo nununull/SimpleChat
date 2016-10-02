@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="#ff00ddff"
+    tools:context=".activity.LoginActivity">
+
+    <ImageView
+        android:id="@+id/splash_img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY" />
+
+    <android.support.percent.PercentRelativeLayout
+        android:id="@+id/percent_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/login_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Welcome to SimpleChat"
+            android:textColor="#fff"
+            android:textSize="25sp"
+            android:typeface="monospace"
+            app:layout_marginTopPercent="25%" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/login_userid_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textColorHint="#FF00ddff"
+            app:layout_marginTopPercent="40%"
+            app:layout_widthPercent="60%">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/login_userID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="20"
+                android:digits="0123456789qwertyuioplkjhgfdsazxcvbnm"
+                android:hint="帐号："
+                android:inputType="text"
+                android:maxLines="1"
+                android:textColor="#fff"
+                android:textColorHint="#FF00ddff" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/password_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/login_userid_layout"
+            android:layout_centerHorizontal="true"
+            android:textColorHint="#FF00ddff"
+            app:layout_widthPercent="60%">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/login_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="15"
+                android:digits="0123456789qwertyuioplkjhgfdsazxcvbnm?!"
+                android:hint="密码："
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:textColor="#fff"
+                android:textColorHint="#FF00ddff" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <TextView
+            android:id="@+id/login_cant_log"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:autoLink="all"
+            android:gravity="center_horizontal"
+            android:maxLines="1"
+            android:padding="20dp"
+            android:text="无法登录?" />
+
+        <TextView
+            android:id="@+id/login_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:autoLink="all"
+            android:maxLines="1"
+            android:padding="20dp"
+            android:text="注册" />
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            app:layout_marginBottomPercent="25%"
+            android:text="登录"
+            android:textColor="#fff"
+            android:background="@drawable/login_btn_login"/>
+    </android.support.percent.PercentRelativeLayout>
+</RelativeLayout>

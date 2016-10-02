@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/homepage_drawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ff00ddff"
+                android:minHeight="?attr/actionBarSize"
+                android:paddingTop="@dimen/toolbarPaddingTop">
+
+                <TextView
+                    android:id="@+id/toolbarTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:textColor="#FFF"
+                    android:textSize="20sp"
+                    tool:text="主页" />
+            </android.support.v7.widget.Toolbar>
+
+            <com.ht.cn.simplechat.views.NoScrollViewPager
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <RadioGroup
+                android:id="@+id/radio_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radio_conversation"
+                    style="@style/MyRadioButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:drawableTop="@drawable/selector_message_btn"
+                    android:text="消息" />
+
+                <RadioButton
+                    android:id="@+id/radio_friendship"
+                    style="@style/MyRadioButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/selector_friendship_btn"
+                    android:text="联系人" />
+
+                <RadioButton
+                    android:id="@+id/radio_moment"
+                    style="@style/MyRadioButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/selector_moment_btn"
+                    android:text="动态" />
+            </RadioGroup>
+        </LinearLayout>
+        <!--<android.support.design.widget.NavigationView-->
+        <!--android:id="@+id/homepage_navigation"-->
+        <!--android:layout_width="280dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_gravity="start"-->
+        <!--android:clipToPadding="true"-->
+        <!--app:headerLayout="@layout/navigation_header_layout"-->
+        <!--app:insetForeground="#00000000"-->
+        <!--app:menu="@menu/menu" />-->
+        <FrameLayout
+            android:id="@+id/slidingMenu"
+            android:layout_width="280dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start" />
+    </android.support.v4.widget.DrawerLayout>
+</RelativeLayout>
