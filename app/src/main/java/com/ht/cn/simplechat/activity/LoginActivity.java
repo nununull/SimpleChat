@@ -3,11 +3,15 @@ package com.ht.cn.simplechat.activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Process;
 import android.support.design.widget.TextInputEditText;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -28,13 +32,13 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     private TextView login_register;//注册
     private TextView login_cant_log;//无法登录
     private StatusUtils statusUtils;
+    private LinearLayout progressLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_login);
-
         if(SharedPreUtils.getBoolean(this,"logined",false)){//登录成功过
             Intent intent = new Intent(this,HomepageActivity.class);
             this.startActivity(intent);
@@ -73,6 +77,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         tv_password = (TextInputEditText) findViewById(R.id.login_password);
         btn_login = (Button) findViewById(R.id.btn_login);
 
+        progressLayout = (LinearLayout) findViewById(R.id.progressLayout);
+
         login_register = (TextView) findViewById(R.id.login_register);
         login_cant_log = (TextView) findViewById(R.id.login_cant_log);
     }
@@ -100,6 +106,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     }
 
     private void login(final View view, final String userID, final String password) {
+        progressLayout.setVisibility(View.VISIBLE);
         String url = "http://nununull.esy.es/app/simplechat/login.php" + "?userid=" + userID + "&password=" + password;
         statusUtils = new StatusUtils(LoginActivity.this);
         // statusUtils.cancel(true);
@@ -114,6 +121,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                         SnackBarUtils.setMessage(view, "连接错误，请稍候再试");
                         break;
                     case 200:
+                        progressLayout.setVisibility(View.GONE);
                         //SnackBarUtils.setMessage(view, "注册成功");
                         Intent intent = new Intent(LoginActivity.this, HomepageActivity.class);
                         intent.putExtra("userid", userID);
@@ -132,5 +140,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 }
             }
         });
+    }
+
+    private void setWindowAttributes(float alpha){
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND,
+                WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
     }
 }
